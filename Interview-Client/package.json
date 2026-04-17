@@ -59,6 +59,6 @@
     "**/*": "prettier --write --ignore-unknown"
   },
   "engines": {
-    "node": "22.x"
+    "node": "20.x"
   }
 }
