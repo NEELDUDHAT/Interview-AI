@@ -16,6 +16,7 @@ const suggestionRoute = require('./Routes/suggestion.route');
 app.use(cors({
     origin: [
         "https://inter-view-ai.vercel.app",
+        "https://interview-ai-six-ruddy.vercel.app",
         "http://localhost:4000" // If you're also testing locally
     ],
     credentials: true
