@@ -29,11 +29,12 @@ const ViewQuestion = () => {
       <div className="bg-white rounded-xl">
         <table {...getTableProps()} className="w-full min-w-max table-auto text-center">
           <thead>
-            {headerGroups.map((headerGroup) => (
-              <tr {...headerGroup.getHeaderGroupProps()}>
+            {headerGroups.map((headerGroup, hgIdx) => (
+              <tr {...headerGroup.getHeaderGroupProps()} key={hgIdx}>
                 {headerGroup.headers.map((column, index) => (
                   <th
                     {...column.getHeaderProps()}
+                    key={index}
                     className={`border-b border-blue-gray-100 bg-blue-gray-50 p-4 ${
                       index === 0 ? "rounded-tl-xl" : ""
                     } ${index === headerGroup.headers.length - 1 ? "rounded-tr-xl" : ""}`}
@@ -51,12 +52,12 @@ const ViewQuestion = () => {
             ))}
           </thead>
           <tbody {...getTableBodyProps()}>
-            {rows.map((row) => {
+            {rows.map((row, rowIdx) => {
               prepareRow(row);
               return (
-                <tr {...row.getRowProps()} className="even:bg-blue-gray-50/50">
-                  {row.cells.map((cell) => (
-                    <td {...cell.getCellProps()} className="p-4">
+                <tr {...row.getRowProps()} key={rowIdx} className="even:bg-blue-gray-50/50">
+                  {row.cells.map((cell, cellIdx) => (
+                    <td {...cell.getCellProps()} key={cellIdx} className="p-4">
                       <Typography variant="small" color="blue-gray" className="font-normal">
                         {cell.render("Cell")}
                       </Typography>

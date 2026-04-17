@@ -2,7 +2,6 @@
 
 import "regenerator-runtime/runtime"; // Add this line
 import { useState, useCallback, useRef, useEffect } from "react";
-import pdfToText from "react-pdftotext";
 import Papa from "papaparse";
 import mammoth from "mammoth";
 import {
@@ -109,6 +108,7 @@ export default function FileExtractor() {
 
         if (file.type === "application/pdf") {
           setLoadingStates((prev) => ({ ...prev, pdf: true }));
+          const { default: pdfToText } = await import("react-pdftotext");
           const text = await pdfToText(file);
           fileContent = text;
           fileType = "pdf";
@@ -200,6 +200,7 @@ export default function FileExtractor() {
     }
   };
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const handleDrop = useCallback((e) => {
     e.preventDefault();
     setDragActive(false);

@@ -9,7 +9,7 @@ import { selectUser } from "@/redux/auth/selectors";
 import { registerUserThunkAction } from "@/redux/auth/action";
 import { useRouter } from "next/navigation";
 import Navbar from "@/components/Navbar";
-const page = () => {
+const Page = () => {
   const dispatch = useDispatch();
 
   const { isSigning } = useSelector(selectUser);
@@ -161,4 +161,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

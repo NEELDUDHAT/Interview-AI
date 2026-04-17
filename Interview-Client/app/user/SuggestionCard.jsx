@@ -55,7 +55,6 @@ const SuggestionCard = () => {
         ) : suggestion ? (
           <div className="text-white bg-gray-900/30 backdrop-blur-sm p-5 rounded-xl border border-purple-500/20">
             <ReactMarkdown
-              children={suggestion.text}
               components={{
                 h1: ({ node, ...props }) => (
                   <h1 className="text-2xl font-bold mb-4 text-purple-300" {...props} />
@@ -80,7 +79,9 @@ const SuggestionCard = () => {
                   <strong className="font-bold text-blue-300" {...props} />
                 )
               }}
-            />
+            >
+              {suggestion.text}
+            </ReactMarkdown>
           </div>
         ) : (
           <div className="flex flex-col items-center justify-center py-8 space-y-4">
@@ -88,7 +89,7 @@ const SuggestionCard = () => {
               <i className="bi bi-lightbulb text-gray-600 text-xl"></i>
             </div>
             <span className="text-gray-400 text-center">
-              Submit your answer and click "Generate Feedback" to receive AI-powered suggestions
+              Submit your answer and click &quot;Generate Feedback&quot; to receive AI-powered suggestions
             </span>
           </div>
         )}

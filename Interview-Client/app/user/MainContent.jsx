@@ -23,7 +23,7 @@ const MainContent = ({ subCategoryData }) => {
     if (subCategoryId) {
       dispatch(fetchQuestionListByIdThunkAction({ subCategoryId, param }));
     }
-  }, [subCategoryId, currentPage]);
+  }, [subCategoryId, currentPage, dispatch]);
 
   const nextBtn = () => {
     if (currentPage < totalPage) {
