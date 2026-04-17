@@ -13,7 +13,7 @@ export async function POST(req) {
     const { messages } = await req.json();
 
     const { text } = await generateText({
-      model: google("gemini-1.5-pro"), 
+      model: google("gemini-3.1-flash-lite"), 
       messages,
       temperature: 0.7,
     });
