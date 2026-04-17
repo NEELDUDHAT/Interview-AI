@@ -13,7 +13,7 @@ export async function POST(req) {
     const { messages } = await req.json();
 
     const { text } = await generateText({
-      model: google("gemini-3.1-flash-lite-preview"), 
+      model: google("gemini-1.5-flash"), 
       messages,
       temperature: 0.7,
     });
@@ -25,7 +25,7 @@ export async function POST(req) {
   } catch (error) {
     console.error("AI Route Error:", error);
     return NextResponse.json(
-      { error: error.message, success: false },
+      { message: error.message, error: error.message, success: false },
       { status: 500 }
     );
   }
