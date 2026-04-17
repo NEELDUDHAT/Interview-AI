@@ -36,7 +36,6 @@
     "react-speech-recognition": "^3.10.0",
     "react-table": "^7.8.0",
     "redux": "^5.0.1",
-    "redux-devtools-extension": "^2.13.9",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^3.1.0",
     "regenerator-runtime": "^0.14.1",
@@ -48,7 +47,7 @@
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.16",
     "@types/regenerator-runtime": "^0.13.6",
-    "eslint": "^9.5.0",
+    "eslint": "^8.57.0",
     "eslint-config-next": "^14.2.4",
     "husky": "^9.0.11",
     "lint-staged": "^15.2.5",
