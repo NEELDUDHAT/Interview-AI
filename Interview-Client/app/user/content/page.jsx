@@ -434,12 +434,17 @@ export default function FileExtractor() {
       combinedContent += `</document>\n`;
     });
 
+    // Trim content to stay under Vercel's 10-second timeout limit
+    const trimmedContent = combinedContent.length > 10000 
+      ? combinedContent.substring(0, 10000) + "... [Content truncated for speed]" 
+      : combinedContent;
+
     try {
       const prompt = `Generate a single tailored interview question based on the provided [RESUME/DOCUMENT].
 
 Here is the document data: 
 
-${combinedContent}
+${trimmedContent}
 
 Instructions:
 1. Analyze the [RESUME/DOCUMENT] to identify key skills, experiences, projects, and credentials.
