@@ -5,7 +5,7 @@ import { createGoogleGenerativeAI } from "@ai-sdk/google";
 export const maxDuration = 30;
 
 const google = createGoogleGenerativeAI({
-  apiKey: "AIzaSyD8CerJimuz6VhANIn5VOOQFefxD7pxUO8" 
+  apiKey: process.env.GOOGLE_API_KEY || process.env.GOOGLE_GENERATIVE_AI_API_KEY
 });
 
 export async function POST(req) {
@@ -13,7 +13,7 @@ export async function POST(req) {
     const { messages } = await req.json();
 
     const { text } = await generateText({
-      model: google("gemini-3.1-flash-lite"), 
+      model: google("gemini-3.1-flash-lite-preview"), 
       messages,
       temperature: 0.7,
     });
